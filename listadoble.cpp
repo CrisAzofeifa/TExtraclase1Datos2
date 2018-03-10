@@ -3,7 +3,9 @@
 
 using namespace std;
 
-
+/*
+ *Método que inicia la lista
+ */
 void ListaDoble ::inicializa() {
 
     primero = nullptr;
@@ -11,6 +13,10 @@ void ListaDoble ::inicializa() {
 
 }
 
+
+/*
+ * Método booleano para saber si la lista está vacia
+ */
 bool ListaDoble ::vacia() {
     if(primero == nullptr &&  ultimo == nullptr)
     {
@@ -22,6 +28,11 @@ bool ListaDoble ::vacia() {
 
 }
 
+
+/*
+ * método para calcular el tamaño haciendo un recorrido
+ * en la lista
+ */
 int ListaDoble::tamano() {
     NodoListaDobleInt *tmp = ultimo;
     int cont = 0;
@@ -33,6 +44,11 @@ int ListaDoble::tamano() {
 
 }
 
+
+/*
+ * Método que recorre la lista y despliega los
+ * valores
+ */
 void ListaDoble::mostrar() {
     NodoListaDobleInt *tmp = primero;
     cout<<"[ ";
@@ -44,6 +60,10 @@ void ListaDoble::mostrar() {
     delete tmp;
 }
 
+
+/*
+ * Método que agrega al incio un nuevo nodo
+ */
 void ListaDoble ::insertarAlInicio(int el) {
     NodoListaDobleInt *tmp = new NodoListaDobleInt;
     tmp->dato = el;
@@ -60,6 +80,10 @@ void ListaDoble ::insertarAlInicio(int el) {
     }
 }
 
+
+/*
+ * Método que agrega al final un nuevo nodo
+ */
 void ListaDoble::insertarAlFinal(int el) {
     NodoListaDobleInt *tmp = new NodoListaDobleInt;
     tmp->dato = el;
@@ -76,6 +100,11 @@ void ListaDoble::insertarAlFinal(int el) {
     }
 }
 
+
+/*
+ * Método que inserta un número determinado en una posición
+ * dada por el usuario
+ */
 void ListaDoble::insertarEnPosicion(int pos, int el) {
     if(pos == tamano())
     {
@@ -108,6 +137,12 @@ void ListaDoble::insertarEnPosicion(int pos, int el) {
     }
 }
 
+
+
+/*
+ * Método que retorna el valor de contenido
+ * en una posición dada por el usuario
+ */
 int ListaDoble::obtenerPorPosicion(int pos) {
     int dato;
     if(vacia()){
@@ -126,6 +161,11 @@ int ListaDoble::obtenerPorPosicion(int pos) {
 
 }
 
+
+
+/*
+ * Método para eliminar el primer nodo de la lista
+ */
 void ListaDoble::eliminarPrimero() {
     if(primero == ultimo) {
         primero = ultimo = nullptr;
@@ -137,6 +177,11 @@ void ListaDoble::eliminarPrimero() {
     }
 }
 
+
+
+/*
+ * Método para eliminar el último nodo de la lista
+ */
 void ListaDoble::eliminarUltimo() {
     if(primero == ultimo) {
         primero = ultimo = nullptr;
@@ -150,6 +195,12 @@ void ListaDoble::eliminarUltimo() {
 
 }
 
+
+/*
+ * Método que busca y elimina el nodo que se
+ * encuentra en una posición dada por el
+ * usuario
+ */
 void ListaDoble::eliminarPorPosicion(int pos) {    
     if(pos==0){
         eliminarPrimero();
@@ -172,6 +223,11 @@ void ListaDoble::eliminarPorPosicion(int pos) {
     }
 }
 
+
+/*
+ * Método que busca un nodo en la posicion dada
+ * por el usuario y sustituye su valor por otro
+ */
 void ListaDoble::editarPorPosicion(int pos, int el) {
     if(pos>tamano() or pos<0)
     {

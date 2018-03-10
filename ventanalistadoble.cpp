@@ -4,6 +4,9 @@
 
 using namespace std;
 
+/*
+ * Inicia la ventana con la ecena donde se muestra la lista
+ */
 ventanalistadoble::ventanalistadoble(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::ventanalistadoble)
@@ -18,6 +21,9 @@ ventanalistadoble::~ventanalistadoble()
     delete ui;
 }
 
+/*
+ * Ejecuta el método de insertar incio
+ */
 void ventanalistadoble::on_InsertarInicioBTN_clicked()
 {
     int el = ui->InsertarNumero->value();
@@ -26,14 +32,18 @@ void ventanalistadoble::on_InsertarInicioBTN_clicked()
 
 }
 
-
+/*
+ * Ejecuta el método de insertar final
+ */
 void ventanalistadoble::on_InsertarFinalBTN_clicked()
 {
     int el = ui->InsertarNumero->value();
     lista->insertarAlFinal(el);
     actualizardibujo();
 }
-
+/*
+ * Ejecuta el método de insertar en posicion
+ */
 void ventanalistadoble::on_InsertarPOSBTN_clicked()
 {
     int pos = ui->PosicionInsertar->value();
@@ -52,13 +62,19 @@ void ventanalistadoble::on_InsertarPOSBTN_clicked()
     actualizardibujo();
 }
 
+/*
+ * Ejecuta el método de eliminar incio
+ */
 void ventanalistadoble::on_EliminarInicioBTN_clicked()
 {
     lista->eliminarPrimero();
+    QString x = "hola";
     actualizardibujo();
 
 }
-
+/*
+ * Ejecuta el método de eliminar final
+ */
 void ventanalistadoble::on_EliminarFinalBTN_clicked()
 {
     lista->eliminarUltimo();
@@ -66,6 +82,9 @@ void ventanalistadoble::on_EliminarFinalBTN_clicked()
 
 }
 
+/*
+ * Ejecuta el método de elminar por posicion
+ */
 void ventanalistadoble::on_EliminarPOSBTN_clicked()
 {
     int pos = ui->PosEliminar->value();
@@ -80,6 +99,9 @@ void ventanalistadoble::on_EliminarPOSBTN_clicked()
     actualizardibujo();
 }
 
+/*
+ * Ejecuta el método de obtener por posicion
+ */
 void ventanalistadoble::on_ObtenerPosBTN_clicked()
 {
     int pos = ui->PosEditarObtener->value();
@@ -100,6 +122,9 @@ void ventanalistadoble::on_ObtenerPosBTN_clicked()
     }
 }
 
+/*
+ * Ejecuta el método de editar por posicion
+ */
 void ventanalistadoble::on_EditarPosBTN_clicked()
 {
     int pos = ui->PosEditarObtener->value();
@@ -115,6 +140,11 @@ void ventanalistadoble::on_EditarPosBTN_clicked()
     }
 }
 
+
+/*
+ * Actualiza el gráfico de la lista
+ * Mediante un string este muestra la lista en pantalla
+ */
 void ventanalistadoble::actualizardibujo(){
     scene->clear();
 

@@ -8,7 +8,9 @@
 
 using namespace std;
 
-
+ /*
+ * Constructor de la clase
+ */
 ListaCircularSimple::ListaCircularSimple() {
     primero == nullptr;
     ultimo == nullptr;
@@ -16,7 +18,10 @@ ListaCircularSimple::ListaCircularSimple() {
 }
 
 
-
+/*
+ * Método que inserta un nodo al final
+ * de la lista
+ */
 void ListaCircularSimple::insertarFinal(int el){
     nodo *nuevo = new nodo(el);
     nuevo->siguiente = nullptr;
@@ -32,6 +37,10 @@ void ListaCircularSimple::insertarFinal(int el){
     cont ++;
 }
 
+/*
+ * Método que inserta un nodo al incio de
+ * la lista
+ */
 void ListaCircularSimple::insertarInicio(int el){
     nodo *nuevo = new nodo(el);
     nuevo->siguiente = nullptr;
@@ -48,6 +57,10 @@ void ListaCircularSimple::insertarInicio(int el){
     cont ++;
 }
 
+/*
+ * Método que hace un recorrido por la lista
+ * y muestra el valor de cada nodo
+ */
 void ListaCircularSimple :: desplegarLista(){
     nodo* actual;
     actual = primero;
@@ -64,6 +77,10 @@ void ListaCircularSimple :: desplegarLista(){
 }
 
 
+/*
+ * Método que devuelve el elemento que se
+ * encuentra en una posicion dada
+ */
 int ListaCircularSimple:: obtenerporpos(int pos) {
     if(pos==0){
         return primero->data;
@@ -88,13 +105,17 @@ int ListaCircularSimple:: obtenerporpos(int pos) {
 
 }
 
+/*
+ * Método que permite cambiar el dato de un nodo
+ * en determinada posición
+ */
 void ListaCircularSimple:: editarporposicion (int pos, int el){
     if(pos==0){
-        insertarInicio(el);
+        primero->data = el;
     }
 
     else if(pos==cont){
-        insertarFinal(el);
+        ultimo->data = el;
     }
 
     else if(pos<cont && pos>0)
@@ -116,40 +137,42 @@ void ListaCircularSimple:: editarporposicion (int pos, int el){
 
 
 
-
+/*
+ * Método para eliminar el primer elemento
+ * de la lista
+ */
 void ListaCircularSimple:: eliminarInicio(){
 
     primero = primero -> siguiente;
     ultimo -> siguiente = primero;
+    cont--;
 
 }
 
+/*
+ * Método para eliminar el último elemento
+ * de la lista
+ */
 void ListaCircularSimple:: eliminarFinal(){
-
-    nodo *actual;
-    actual = primero;
-    nodo *anterior;
-    anterior = NULL;
-
-    if (primero != NULL) {
-        do {
-            if (actual == ultimo) {
-                anterior -> siguiente = primero;
-                ultimo = anterior;
-            }
-            anterior = actual;
-            actual = actual->siguiente;
-        } while (actual != primero);
-
-    } else {
-        cout << "Lista vacia" << endl;
+    if(primero==ultimo){
+        primero = ultimo = NULL;
+        cont=0;
+    }else{
+        nodo *tmp = primero;
+        for(int x = 0; x<cont-1;x++ ){
+            tmp = tmp->siguiente;
+        }
+        tmp->siguiente = primero;
+        cont--;
     }
 
-
 }
 
 
-
+/*
+ * Método que elimina el elemento de una posicion dada
+ * por el usuario
+ */
 void ListaCircularSimple:: eliminarporposicion(int pos){
     if(pos==0){
         eliminarInicio();
@@ -172,7 +195,10 @@ void ListaCircularSimple:: eliminarporposicion(int pos){
 
 }
 
-
+/*
+ * Método que inserta un número dado en una posición
+ * determinada por el usuario
+ */
 void ListaCircularSimple:: insertarPosicion(int dato, int pos) {
     if(pos==0){
         insertarInicio(dato);

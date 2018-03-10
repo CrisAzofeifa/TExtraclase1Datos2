@@ -6,7 +6,7 @@ siguiente = nullptr;
 
 }
 
-
+//constructor de la clase nodo
 nodo:: nodo(int dato){
 
 data = dato;

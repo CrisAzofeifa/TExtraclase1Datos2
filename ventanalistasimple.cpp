@@ -4,6 +4,9 @@
 
 using namespace std;
 
+/*
+ * Incia la ventana con la ecena donde se muestra la lista
+ */
 VentanaListaSimple::VentanaListaSimple(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::VentanaListaSimple)
@@ -20,6 +23,9 @@ VentanaListaSimple::~VentanaListaSimple()
     delete ui;
 }
 
+/*
+ * Ejecuta el método de insertar incio
+ */
 void VentanaListaSimple::on_InsertarInicioBTN_clicked()
 {
     int el = ui->InsertarNumero->value();
@@ -28,6 +34,9 @@ void VentanaListaSimple::on_InsertarInicioBTN_clicked()
 
 }
 
+/*
+ * Ejecuta el método de insertar final
+ */
 void VentanaListaSimple::on_InsertarFinalBTN_clicked()
 {
     int el = ui->InsertarNumero->value();
@@ -36,6 +45,10 @@ void VentanaListaSimple::on_InsertarFinalBTN_clicked()
 
 }
 
+
+/*
+ * Ejecuta el método de por posicion
+ */
 void VentanaListaSimple::on_InsertarPOSBTN_clicked()
 {
     int pos = ui->PosicionInsertar->value();
@@ -54,18 +67,27 @@ void VentanaListaSimple::on_InsertarPOSBTN_clicked()
     actualizardibujo();
 }
 
+/*
+ * Ejecuta el método de eliminar incio
+ */
 void VentanaListaSimple::on_EliminarInicioBTN_clicked()
 {
     lista->EliminarPrimero();
     actualizardibujo();
 }
 
+/*
+ * Ejecuta el método de eliminar final
+ */
 void VentanaListaSimple::on_EliminarFinalBTN_clicked()
 {
     lista->EliminarUltimo();
     actualizardibujo();
 }
 
+/*
+ * Ejecuta el método de eliminar por posicion
+ */
 void VentanaListaSimple::on_EliminarPOSBTN_clicked()
 {
     int pos = ui->PosEliminar->value();
@@ -80,6 +102,9 @@ void VentanaListaSimple::on_EliminarPOSBTN_clicked()
     actualizardibujo();
 }
 
+/*
+ * Ejecuta el método de editar por posicion
+ */
 void VentanaListaSimple::on_EditarPosBTN_clicked()
 {
     int pos = ui->PosEditarObtener->value();
@@ -95,6 +120,9 @@ void VentanaListaSimple::on_EditarPosBTN_clicked()
     }
 }
 
+/*
+ * Ejecuta el método de obtener posicion
+ */
 void VentanaListaSimple::on_ObtenerPosBTN_clicked()
 {
     int pos = ui->PosEditarObtener->value();
@@ -118,6 +146,10 @@ void VentanaListaSimple::on_ObtenerPosBTN_clicked()
 
 }
 
+/*
+ * Actualiza el gráfico de la lista
+ * Mediante un string este muestra la lista en pantalla
+ */
 void VentanaListaSimple::actualizardibujo(){
 
     scene->clear();
@@ -143,7 +175,5 @@ void VentanaListaSimple::actualizardibujo(){
     QString Final = QString::fromStdString(listaText);
 
     scene->addText(Final,QFont("Times", 18, QFont::Bold));
-
-
 
 }

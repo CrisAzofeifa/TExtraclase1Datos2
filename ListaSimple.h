@@ -23,11 +23,11 @@ public:
 class ListaSimple {
 public:
     ListaSimple(){
-        primero = ultimo = 0;
+        primero = ultimo = nullptr;
     }
     ~ListaSimple();
     int EstaVacia(){
-        return primero == 0;
+        return primero == nullptr;
     }
     void InsertarAlInicio(int el);
     void InsertarAlFinal(int el);

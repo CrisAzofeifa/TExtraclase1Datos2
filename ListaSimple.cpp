@@ -8,6 +8,9 @@
 
 using namespace std;
 
+/*
+ * Destructor de la clase
+ */
 ListaSimple::~ListaSimple() {
     for(NodoSimpleInt *p; !EstaVacia();) {
         p = primero->siguiente;
@@ -24,6 +27,10 @@ void ListaSimple :: InsertarAlInicio(int el){
     tamanio++;
 }
 
+/*
+ *Método que inserta al final un nuevo
+ * valor
+ */
 void ListaSimple ::InsertarAlFinal(int el) {
     if(ultimo != 0) {
         ultimo->siguiente = new NodoSimpleInt(el);
@@ -34,7 +41,9 @@ void ListaSimple ::InsertarAlFinal(int el) {
     tamanio++;
 }
 
-
+/*
+ * Método que borra el primer elemento
+ */
 void ListaSimple ::EliminarPrimero() {
 
     if(primero == ultimo) {
@@ -50,6 +59,9 @@ void ListaSimple ::EliminarPrimero() {
 
 }
 
+/*
+ * Método que borra el último elemento
+ */
 void ListaSimple ::EliminarUltimo() {
     if(primero == ultimo){
         delete primero;
@@ -60,7 +72,6 @@ void ListaSimple ::EliminarUltimo() {
         for(tmp = primero; tmp->siguiente != ultimo; tmp = tmp->siguiente) {
             //delete ultimo;
         }
-        delete ultimo;
         ultimo = tmp;
         ultimo->siguiente = nullptr;
         tamanio--;
@@ -68,6 +79,10 @@ void ListaSimple ::EliminarUltimo() {
 
 }
 
+/*
+ * Método que busca un nodo en la posicion dada
+ * por el usuario y sustituye su valor por otro
+ */
 void ListaSimple ::EditarPorPosicion(int pos, int el) {
     if(pos == 0) {
         primero->dato = el;
@@ -79,11 +94,13 @@ void ListaSimple ::EditarPorPosicion(int pos, int el) {
             tmp = tmp->siguiente;
         }
         tmp->dato = el;
-        delete tmp;
     }
 
 }
 
+/*
+ * Método que obtiene el valor de una posición dada
+ */
 int ListaSimple ::ObtenerPorPosicion(int pos) {
 
     if(pos == 0){
@@ -97,7 +114,6 @@ int ListaSimple ::ObtenerPorPosicion(int pos) {
             *tmp = *tmp->siguiente;
         }
         int el = tmp->dato;
-        delete tmp;
         return el;
 
     }
@@ -105,6 +121,9 @@ int ListaSimple ::ObtenerPorPosicion(int pos) {
 
 }
 
+/*
+ *Método que muestra la lista en consola
+ */
 void ListaSimple ::ImprimirLista() {
         NodoSimpleInt *tmp = primero;
         cout<<"[ ";
@@ -117,11 +136,13 @@ void ListaSimple ::ImprimirLista() {
 
 }
 
+/*
+ * Método que inserta un valor determinado en una
+ * posición dada
+ */
 void ListaSimple ::InsertarEnPosicion(int pos, int el) {
-    NodoSimpleInt *aux = new NodoSimpleInt(el);
-    aux->siguiente = nullptr;
 
-    if(EstaVacia() or pos == 0 )
+    if(pos == 0 )
     {
         InsertarAlInicio(el);
     }
@@ -138,8 +159,10 @@ void ListaSimple ::InsertarEnPosicion(int pos, int el) {
             tmp2 = tmp;
             tmp = tmp->siguiente;
         }
-        tmp2->siguiente = aux;
-        aux->siguiente = tmp;
+        NodoSimpleInt *nuevo = new NodoSimpleInt();
+        nuevo->dato = el;
+        tmp2->siguiente = nuevo;
+        nuevo->siguiente = tmp;
     }
     else{
         cout<<"Posición no encontrada, inserte una posición valida";
@@ -148,6 +171,9 @@ void ListaSimple ::InsertarEnPosicion(int pos, int el) {
 
 }
 
+/*
+ * Método que elimina el elemento de una posicion dada
+ */
 void ListaSimple ::EliminarPorPosicion(int pos) {
     if(pos == 0)
     {
@@ -164,12 +190,15 @@ void ListaSimple ::EliminarPorPosicion(int pos) {
             tmp = tmp->siguiente;
         }
         tmp2->siguiente = tmp->siguiente;
-        delete tmp, tmp2;
     }else{
         cout<<"Posicion no valida.";
     }
 
 }
+
+/*
+ *Método que retorna el tamaño de la lista
+ */
 int ListaSimple::GetTamanio(){
     return tamanio;
 }

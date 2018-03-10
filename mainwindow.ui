@@ -6,33 +6,33 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>697</width>
-    <height>389</height>
+    <width>255</width>
+    <height>180</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Estructuras de datos</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
       <x>50</x>
-      <y>40</y>
-      <width>181</width>
+      <y>20</y>
+      <width>151</width>
       <height>16</height>
      </rect>
     </property>
     <property name="text">
-     <string>Seleccione una Estructura</string>
+     <string>Seleccione la estructura</string>
     </property>
    </widget>
    <widget class="QPushButton" name="ListaSimpleBTN">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>100</y>
-      <width>80</width>
+      <x>80</x>
+      <y>60</y>
+      <width>91</width>
       <height>22</height>
      </rect>
     </property>
@@ -46,9 +46,9 @@
    <widget class="QPushButton" name="ListaCircularBTN">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>200</y>
-      <width>80</width>
+      <x>80</x>
+      <y>140</y>
+      <width>91</width>
       <height>22</height>
      </rect>
     </property>
@@ -59,9 +59,9 @@
    <widget class="QPushButton" name="ListaDobleBTN">
     <property name="geometry">
      <rect>
-      <x>50</x>
-      <y>150</y>
-      <width>80</width>
+      <x>80</x>
+      <y>100</y>
+      <width>91</width>
       <height>22</height>
      </rect>
     </property>

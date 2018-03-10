@@ -32,6 +32,16 @@ private slots:
 
     void on_InsertarPOSBTN_clicked();
 
+    void on_EliminarInicioBTN_clicked();
+
+    void on_EliminarFinalBTN_clicked();
+
+    void on_EliminarPOSBTN_clicked();
+
+    void on_ObtenerPosBTN_clicked();
+
+    void on_EditarPosBTN_clicked();
+
 private:
     Ui::ventanacircularsimple *ui;
     QGraphicsScene *scene = NULL;
